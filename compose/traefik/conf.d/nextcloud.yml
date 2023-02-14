@@ -1,0 +1,16 @@
+http:
+  # Add the router
+  routers:
+    nextcloud-web:
+      entryPoints:
+        - web
+      service: nextcloud-vm
+      rule: Host(`nextcloud.games.tnp.me.uk`)
+
+  # Add the service
+  services:
+    nextcloud-vm:
+      loadBalancer:
+        servers:
+          - url: "http://172.24.2.27/"
+        passHostHeader: true

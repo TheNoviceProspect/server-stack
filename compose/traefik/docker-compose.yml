@@ -1,0 +1,53 @@
+version: "3.3"
+
+services:
+  traefik:
+    container_name: traefik
+    image: "traefik:v2.9"
+    command:
+      - --configFile=/etc/traefik/traefik.yml
+#      - --certificatesresolvers.leresolver.acme.httpchallenge=true
+#      - --certificatesresolvers.leresolver.acme.email=webmaster@tnp.me.uk 
+#      - --certificatesresolvers.leresolver.acme.storage=/etc/traefik/acme.json
+#      - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web
+    networks:
+      - internal
+      - traefik-public
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./acme.json:/etc/traefik/acme.json"
+      - "./conf.d/:/etc/traefik/conf.d/"
+      - "./traefik.yml:/etc/traefik/traefik.yml"
+      - "/var/log/traefik/:/var/log/traefik/"
+    labels:
+      - "traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)"
+      - "traefik.http.routers.http-catchall.entrypoints=web"
+#      - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
+#      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+
+#  hub-agent:
+#    image: ghcr.io/traefik/hub-agent-traefik:v1.0.0
+#    pull_policy: always
+#    container_name: hub-agent
+#    restart: "on-failure"
+#    command:
+#      - run
+#      - --hub.token=2e04eff4-3ad8-4c6b-a0a9-1e614b08a1f5
+#      - --auth-server.advertise-url=http://hub-agent
+#      - --traefik.host=traefik
+#      - --traefik.tls.insecure=true
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#    depends_on:
+#      - traefik
+
+
+networks:
+  traefik-public:
+    external: true
+  internal:
+    external: false

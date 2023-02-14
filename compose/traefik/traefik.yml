@@ -1,0 +1,98 @@
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: true
+
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+  traefikhub-api:
+    address: ":9900"
+  traefikhub-tunl:
+    address: ":9901"
+
+hub:
+  tls:
+    insecure: true
+
+# Traefik logs
+# Enabled by default and log to stdout
+#
+# Optional
+#
+log:
+  # Log level
+  #
+  # Optional
+  # Default: "ERROR"
+  #
+  level: DEBUG
+
+  # Sets the filepath for the traefik log. If not specified, stdout will be used.
+  # Intermediate directories are created if necessary.
+  #
+  # Optional
+  # Default: os.Stdout
+  #
+  filePath: /var/log/traefik/app.log
+  
+
+  # Format is either "json" or "common".
+  #
+  # Optional
+  # Default: "common"
+  #
+  format: json
+  #format: common
+
+################################################################
+# Access logs configuration
+################################################################
+
+# Enable access logs
+# By default it will write to stdout and produce logs in the textual
+# Common Log Format (CLF), extended with additional fields.
+#
+# Optional
+#
+accessLog:
+  # Sets the file path for the access log. If not specified, stdout will be used.
+  # Intermediate directories are created if necessary.
+  #
+  # Optional
+  # Default: os.Stdout
+  #
+#  filePath: /path/to/log/log.txt
+  filePath: /var/log/traefik/access.log
+
+  # Format is either "json" or "common".
+  #
+  # Optional
+  # Default: "common"
+  #
+  format: json
+
+api:
+  insecure: true
+  dashboard: true
+
+ping:
+  entryPoint: traefik
+
+providers:
+  file:
+    directory: "/etc/traefik/conf.d/"
+    watch: true
+  docker:
+    endpoint: unix:///var/run/docker.sock
+
+    # Default host rule.
+    #
+    # Optional
+    # Default: "Host(`{{ normalize .Name }}`)"
+    #
+    #defaultRule: "Host(`{{ normalize .Name }}`)"
+    #defaultRule: "Host(`{{ normalize .Name }}.games.tnp.me.uk`)"
+
+    exposedByDefault: false

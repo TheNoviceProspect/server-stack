@@ -1,0 +1,16 @@
+http:
+  # Add the router
+  routers:
+    vpn-web:
+      entryPoints:
+        - web
+      service: vpn-vm
+      rule: Host(`vpn.games.tnp.me.uk`)
+
+  # Add the service
+  services:
+    vpn-vm:
+      loadBalancer:
+        servers:
+          - url: "http://172.24.3.94/"
+        passHostHeader: true
