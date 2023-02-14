@@ -3,9 +3,12 @@ http:
   routers:
     nextcloud-web:
       entryPoints:
-        - web
+        - "web"
+	- "websecure"
       service: nextcloud-vm
       rule: Host(`nextcloud.games.tnp.me.uk`)
+      tls:
+        certResolver: leresolver
 
   # Add the service
   services:

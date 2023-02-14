@@ -7,14 +7,14 @@ entryPoints:
     address: ":80"
   websecure:
     address: ":443"
-  traefikhub-api:
-    address: ":9900"
-  traefikhub-tunl:
-    address: ":9901"
+#  traefikhub-api:
+#    address: ":9900"
+#  traefikhub-tunl:
+#    address: ":9901"
 
-hub:
-  tls:
-    insecure: true
+#hub:
+#  tls:
+#    insecure: true
 
 # Traefik logs
 # Enabled by default and log to stdout
@@ -56,7 +56,7 @@ log:
 #
 # Optional
 #
-accessLog:
+#accessLog:
   # Sets the file path for the access log. If not specified, stdout will be used.
   # Intermediate directories are created if necessary.
   #
@@ -64,14 +64,14 @@ accessLog:
   # Default: os.Stdout
   #
 #  filePath: /path/to/log/log.txt
-  filePath: /var/log/traefik/access.log
+#  filePath: /var/log/traefik/access.log
 
   # Format is either "json" or "common".
   #
   # Optional
   # Default: "common"
   #
-  format: json
+#  format: json
 
 api:
   insecure: true

@@ -6,13 +6,10 @@ services:
     image: "traefik:v2.9"
     command:
       - --configFile=/etc/traefik/traefik.yml
-#      - --certificatesresolvers.leresolver.acme.httpchallenge=true
-#      - --certificatesresolvers.leresolver.acme.email=webmaster@tnp.me.uk 
-#      - --certificatesresolvers.leresolver.acme.storage=/etc/traefik/acme.json
-#      - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web
-    networks:
-      - internal
-      - traefik-public
+      - --certificatesresolvers.leresolver.acme.httpchallenge=true
+      - --certificatesresolvers.leresolver.acme.email=webmaster@tnp.me.uk 
+      - --certificatesresolvers.leresolver.acme.storage=/etc/traefik/acme.json
+      - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web
     ports:
       - "80:80"
       - "443:443"
@@ -22,7 +19,7 @@ services:
       - "./acme.json:/etc/traefik/acme.json"
       - "./conf.d/:/etc/traefik/conf.d/"
       - "./traefik.yml:/etc/traefik/traefik.yml"
-      - "/var/log/traefik/:/var/log/traefik/"
+      - "./log/:/var/log/traefik/"
     labels:
       - "traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)"
       - "traefik.http.routers.http-catchall.entrypoints=web"
@@ -44,10 +41,3 @@ services:
 #      - /var/run/docker.sock:/var/run/docker.sock
 #    depends_on:
 #      - traefik
-
-
-networks:
-  traefik-public:
-    external: true
-  internal:
-    external: false
