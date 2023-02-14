@@ -11,13 +11,12 @@ services:
     labels:
       # Frontend
       - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`docker.games.tnp.me.uk`)"
+      - "traefik.http.routers.portainer.rule=Host(`docker.games.tnp.me.uk`) && Path(`/portainer`)"
       - "traefik.http.routers.portainer.entrypoints=web,websecure"
       - "traefik.http.services.portainer.loadbalancer.server.port=9000"
       - "traefik.http.routers.portainer.service=portainer"
       - "traefik.http.routers.portainer.tls=true"
       - "traefik.http.routers.portainer.tls.certresolver=leresolver"
-      - "traefik.http.routers.portainer.tls.domains[0].main=docker.games.tnp.me.uk"
       
       # Edge
 #      - "traefik.http.routers.edge.rule=Host(`edge.games.tnp.me.uk`)"
