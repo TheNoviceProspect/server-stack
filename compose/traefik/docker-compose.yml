@@ -7,7 +7,7 @@ services:
     command:
       - --configFile=/etc/traefik/traefik.yml
       - --certificatesresolvers.leresolver.acme.httpchallenge=true
-      - --certificatesresolvers.leresolver.acme.email=webmaster@tnp.me.uk 
+      - --certificatesresolvers.leresolver.acme.email=webmaster@tnp.me.uk
       - --certificatesresolvers.leresolver.acme.storage=/etc/traefik/acme.json
       - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web
     ports:

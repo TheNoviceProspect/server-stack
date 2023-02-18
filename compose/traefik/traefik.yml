@@ -35,7 +35,7 @@ log:
   # Optional
   # Default: os.Stdout
   #
-  filePath: /var/log/traefik/app.log
+#  filePath: /var/log/traefik/app.log
   
 
   # Format is either "json" or "common".
@@ -43,8 +43,8 @@ log:
   # Optional
   # Default: "common"
   #
-  format: json
-  #format: common
+#  format: json
+  format: common
 
 ################################################################
 # Access logs configuration
@@ -93,6 +93,6 @@ providers:
     # Default: "Host(`{{ normalize .Name }}`)"
     #
     #defaultRule: "Host(`{{ normalize .Name }}`)"
-    #defaultRule: "Host(`{{ normalize .Name }}.games.tnp.me.uk`)"
+    defaultRule: "Host(`{{ normalize .Name }}.home.tnp.me.uk`)"
 
-    exposedByDefault: false
+    exposedByDefault: true
