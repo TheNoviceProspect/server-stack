@@ -1,0 +1,138 @@
+{
+    "version": "2.0",
+    "columns": 4,
+    "tiles": [
+	{
+	    "type": "PORT",
+	    "label": "Monitoror Service",
+	    "params": {
+		"hostname": "127.0.0.1",
+		"port": 8080
+	    }
+	},
+	{
+	    "type": "PORT",
+	    "label": "Keymaster Webservice",
+	    "params": {
+		"hostname":  "172.24.2.2",
+		"port": 81
+	    }
+	},
+	{
+	    "type": "HTTP-STATUS",
+	    "label": "Nextcloud Webservice",
+	    "params": {
+		"url":  "http://172.24.2.27/index.php/login",
+		"statusCodeMin": 200,
+		"statusCodeMax": 302
+	    }
+	},
+	{
+	    "type": "PING",
+	    "label": "Windows Server (yosemite)",
+	    "params": {
+		"hostname": "172.24.2.4"
+	    }
+	},
+	{
+	    "type": "PING",
+	    "label": "Linux Server (reverse-proxy)",
+	    "params": {
+		"hostname": "172.24.3.252"
+	    }
+	},
+	{
+	    "type": "GROUP",
+	    "label": "Game Servers",
+	    "tiles": [
+		{
+		    "type": "PING",
+		    "label": "Windows Server",
+		    "params": {
+			"hostname": "172.24.2.5"
+		    }
+		},
+		{
+		    "type": "PORT",
+		    "label": "Ark Survival Evolved (The Island)",
+		    "params": {
+			"hostname": "172.24.2.5",
+			"port": 32330
+		    }
+		},
+		{
+		    "type": "PORT",
+		    "label": "Ark Survival Evolved (Scorched Earth)",
+		    "params": {
+			"hostname": "172.24.2.5",
+			"port": 32331
+		    }
+		}
+	    ]
+	},
+	{
+	    "type": "GROUP",
+	    "label": "Pufferpanel",
+	    "tiles": [
+		{
+		    "type": "PING",
+		    "label": "Linux Server Puffer1",
+		    "params": {
+			"hostname": "172.24.3.21"
+		    }
+		},
+		{
+		    "type": "HTTP-STATUS",
+		    "label": "Pufferpanel Webservice",
+		    "params": {
+			"url":  "http://172.24.3.21:8080/auth/login",
+			"statusCodeMin": 200,
+			"statusCodeMax": 302
+		    }
+		},
+		{
+		    "type": "PING",
+		    "label": "Linux Server Puffer 2",
+		    "params": {
+			"hostname": "172.24.2.149"		    }
+		}
+	    ]
+	},
+	{
+	    "type": "GROUP",
+	    "label": "VPN",
+	    "tiles": [
+		{
+		    "type": "PING",
+		    "label": "Linux Server (VPN)",
+		    "params": {
+			"hostname": "172.24.3.94"
+		    }
+		},
+		{
+		    "type": "PING",
+		    "label": "Linux Server (Laptop)",
+		    "params": {
+			"hostname": "tnpus.ddnsfree.com"
+		    }
+		},
+		{
+		    "type": "PORT",
+		    "label": "EU VPN Service",
+		    "params": {
+			"hostname": "172.24.3.94",
+			"port": 1194
+		    }
+		},
+		{
+		    "type": "PORT",
+		    "label": "US VPN Webservice",
+		    "params": {
+			"hostname":  "tnpus.ddnsfree.com",
+			"port": 22
+		    }
+		}
+	    ]
+	}
+    ]
+}

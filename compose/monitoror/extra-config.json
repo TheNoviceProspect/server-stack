@@ -1,0 +1,8 @@
+		{
+		    "type": "PORT",
+		    "label": "Space Engineers",
+		    "params": {
+			"hostname": "172.24.2.5",
+			"port": 8080
+		    }
+		}
