@@ -6,3 +6,11 @@
 			"port": 8080
 		    }
 		}
+---
+	{
+	    "type": "PING",
+	    "label": "Windows Server (yosemite)",
+	    "params": {
+		"hostname": "172.24.2.4"
+	    }
+	}
