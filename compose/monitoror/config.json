@@ -60,6 +60,14 @@
 			"hostname": "172.24.2.5",
 			"port": 32331
 		    }
+		},
+		{
+		    "type": "PORT",
+		    "label": "Ark Survival Evolved (Aberration)",
+		    "params": {
+			"hostname": "172.24.2.5",
+			"port": 32332
+		    }
 		}
 	    ]
 	},
@@ -99,7 +107,7 @@
 		    "type": "PING",
 		    "label": "Linux Server (VPN)",
 		    "params": {
-			"hostname": "172.24.2.4"
+			"hostname": "172.24.3.250"
 		    }
 		},
 		{
@@ -113,7 +121,7 @@
 		    "type": "PORT",
 		    "label": "EU VPN Service",
 		    "params": {
-			"hostname": "172.24.2.4",
+			"hostname": "172.24.3.250",
 			"port": 1194
 		    }
 		},
