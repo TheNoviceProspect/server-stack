@@ -1,0 +1,6 @@
+[submodule "compose/guacamole"]
+	path = compose/guacamole
+	url = https://github.com/boschkundendienst/guacamole-docker-compose.git
+[submodule "compose/factorio"]
+	path = compose/factorio
+	url = https://github.com/factoriotools/factorio-docker.git
