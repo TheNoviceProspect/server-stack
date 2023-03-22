@@ -1,2 +1,2 @@
 FROM nginx:latest
-COPY . /etc/nginx/
+COPY ./data/nginx/ /etc/nginx/

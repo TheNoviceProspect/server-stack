@@ -12,26 +12,19 @@
 	},
 	{
 	    "type": "PORT",
-	    "label": "Keymaster Webservice",
+	    "label": "Zentyal Webservice",
 	    "params": {
-		"hostname":  "172.24.2.2",
-		"port": 81
+		"hostname":  "172.24.3.250",
+		"port": 8443
 	    }
 	},
 	{
 	    "type": "HTTP-STATUS",
 	    "label": "Nextcloud Webservice",
 	    "params": {
-		"url":  "http://172.24.2.27/index.php/login",
+		"url":  "http://172.24.3.253/index.php/login",
 		"statusCodeMin": 200,
 		"statusCodeMax": 302
-	    }
-	},
-	{
-	    "type": "PING",
-	    "label": "Windows Server (yosemite)",
-	    "params": {
-		"hostname": "172.24.2.4"
 	    }
 	},
 	{
@@ -67,6 +60,14 @@
 			"hostname": "172.24.2.5",
 			"port": 32331
 		    }
+		},
+		{
+		    "type": "PORT",
+		    "label": "Ark Survival Evolved (Aberration)",
+		    "params": {
+			"hostname": "172.24.2.5",
+			"port": 32332
+		    }
 		}
 	    ]
 	},
@@ -78,23 +79,23 @@
 		    "type": "PING",
 		    "label": "Linux Server Puffer1",
 		    "params": {
-			"hostname": "172.24.3.21"
-		    }
-		},
-		{
-		    "type": "HTTP-STATUS",
-		    "label": "Pufferpanel Webservice",
-		    "params": {
-			"url":  "http://172.24.3.21:8080/auth/login",
-			"statusCodeMin": 200,
-			"statusCodeMax": 302
+			"hostname": "172.24.2.6"
 		    }
 		},
 		{
 		    "type": "PING",
 		    "label": "Linux Server Puffer 2",
 		    "params": {
-			"hostname": "172.24.2.149"		    }
+			"hostname": "172.24.2.7"		    }
+		},
+		{
+		    "type": "HTTP-STATUS",
+		    "label": "Pufferpanel Webservice",
+		    "params": {
+			"url":  "http://172.24.2.6:8080/auth/login",
+			"statusCodeMin": 200,
+			"statusCodeMax": 302
+		    }
 		}
 	    ]
 	},
@@ -106,7 +107,7 @@
 		    "type": "PING",
 		    "label": "Linux Server (VPN)",
 		    "params": {
-			"hostname": "172.24.3.94"
+			"hostname": "172.24.3.250"
 		    }
 		},
 		{
@@ -120,7 +121,7 @@
 		    "type": "PORT",
 		    "label": "EU VPN Service",
 		    "params": {
-			"hostname": "172.24.3.94",
+			"hostname": "172.24.3.250",
 			"port": 1194
 		    }
 		},
